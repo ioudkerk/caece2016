@@ -1,0 +1,51 @@
+<div class="horizontal-scroll">
+  <div class="form-group select-pcantidad-size-wrap ">
+    <label>Cantidad de filas
+      <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker
+              ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+      </select>
+    </label>
+  </div>
+  <table class="table" st-table="stocks">
+    <thead>
+    <tr class="sortable ">
+      <th class="table-id" st-sort="id" st-sort-default="true">#</th>
+      <th st-sort="producto">Producto</th>
+      <th st-sort="marca">Marca</th>
+      <th st-sort="descripcion">Descripción</th>
+      <th st-sort="sucursal">Sucursal</th>
+      <th st-sort="cantidad">Cantidad</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th><input st-search="producto" placeholder="Busqueda por Producto" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="marca" placeholder="Busqueda por Marca" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="descripcion" placeholder="Busqueda Descripcion" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="sucursal" placeholder="Busqueda Sucursal" class="input-sm form-control search-input" type="search"/>
+      </th>
+      <th><input st-search="cantidad" placeholder="Busqueda Stock" class="input-sm form-control search-input" type="search"/>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="stock in stocks">
+      <td class="table-id">{{stock.id}}</td>
+      <td>{{stock.producto}}</td>
+      <td>{{stock.marca}}</td>
+      <td>{{stock.descripcion}}</td>
+      <td>{{stock.sucursal}}</td>
+      <td>{{stock.cantidad}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="6" class="text-center">
+        <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
