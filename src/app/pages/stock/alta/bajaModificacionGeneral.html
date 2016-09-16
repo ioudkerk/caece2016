@@ -1,7 +1,8 @@
+<!--
 <div class="add-row-editable-table">
   <button class="btn btn-primary" ng-click="addNewStock()">Agregar producto</button>
-  <button class="btn btn-primary" ng-click="saveNewStock()">Guardar alta de productos</button>
 </div>
+-->
 <table class="table table-bordered table-hover table-condensed">
   <tr>
     <td></td>
@@ -11,7 +12,7 @@
     <td>Sucursal</td>
     <td>Cantidad</td>
   </tr>
-  <tr ng-repeat="stock in new_stocks" class="editable-row">
+  <tr ng-repeat="stock in stocks" class="editable-row">
     <td>
         {{$index}}
     </td>
@@ -53,7 +54,7 @@
       </form>
       <div class="buttons" ng-show="!rowform.$visible">
         <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Edit</button>
-        <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeNewStock($index)">Delete</button>
+        <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeStock($index)">Delete</button>
       </div>
     </td>
   </tr>

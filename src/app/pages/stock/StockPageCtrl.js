@@ -69,6 +69,9 @@
     $scope.removeNewStock = function(index) {
       $scope.new_stocks.splice(index, 1);
     };
+    $scope.removeStock = function(index) {
+      $scope.stocks.splice(index, 1);
+    };
 
     $scope.addNewStock = function() {
       $scope.inserted = {
@@ -81,6 +84,16 @@
       };
       $scope.new_stocks.push($scope.inserted);
     };
+
+    $scope.saveNewStock = function(){
+      angular.forEach($scope.new_stocks, function(new_stock){
+         this.push(new_stock);
+      },$scope.stocks);
+      $scope.new_stocks=[];
+    };
+
+
+
 
     editableOptions.theme = 'bs3';
     editableThemes['bs3'].submitTpl = '<button type="submit" class="btn btn-primary btn-with-icon"><i class="ion-checkmark-round"></i></button>';
