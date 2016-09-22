@@ -120,6 +120,9 @@
         }
       }
     })
+     ventasModal.result.then(function (vendidos) {
+	angular.forEach(vendidos, function(vendido) {vendido.vendiendo=0});
+     });
    };
 
 

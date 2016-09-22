@@ -8,6 +8,10 @@
     var $ctrl = this;
     $ctrl.vendiendoItems=items;
 
+    $ctrl.confirmarVenta = function () {
+	$uibModalInstance.close($ctrl.vendiendoItems);
+    };
+
   };
 
 })();
