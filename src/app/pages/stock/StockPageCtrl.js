@@ -6,10 +6,11 @@
   'use strict';
 
   angular.module('BlurAdmin.pages.stock')
-      .controller('StockPageCtrl', TablesPageCtrl);
+      .controller('StockPageCtrl', StockCtrl);
+
 
   /** @ngInject */
-  function TablesPageCtrl($scope, $filter, editableOptions, editableThemes) {
+  function StockCtrl($scope, $filter, $uibModal, editableOptions, editableThemes) {
 
     $scope.smartTablePageSize = 5;
 
@@ -20,7 +21,8 @@
         marca: 'Polo',
         descripcion: 'una breve descripcion del producto',
         sucursal: 'avellaneda',
-        cantidad: '500'
+        cantidad: 500,
+        vendiendo: 0
       },
       {
         id:2,
@@ -28,7 +30,8 @@
         marca: 'Polo',
         descripcion: 'una breve descripcion del producto',
         sucursal: 'avellaneda',
-        cantidad: '30'
+        cantidad: 30,
+        vendiendo: 0
       },
     ]
 
@@ -48,7 +51,8 @@
         marca: '',
         descripcion:'',
         sucursal:'',
-        cantidad:''
+        cantidad:'',
+        vendiendo: 0
       };
       $scope.new_stocks.push($scope.inserted);
     };
@@ -61,22 +65,44 @@
       $scope.new_stocks=[];
     };
 
-   $scope.generarVenta = function() {
+   $scope.addVenta = function (stock) {
+      if (stock.cantidad > 0) {
+        stock.vendiendo+=1;
+        stock.cantidad-=1;
+      }else{
+        alert("No hay stock!");
+      }
+   
+
+   };
+
+   $scope.remVenta = function (stock) {
+      if (stock.vendiendo > 0) {
+        stock.vendiendo-=1;
+        stock.cantidad+=1;
+      }else{
+        alert("No hay mas para quitar");
+      }
+   };
+
+   $scope.generarVenta = function(page) {
     var ventasModal = $uibModal.open({
       animation: true,
-      ariaLabelledBy: 'Orden de Venta',
-      ariaDescribedBy: 'modal-body',
-      templateUrl: 'ventaModal.html',
-      controller: 'VentaModalCtrl',
-      controllerAs: '$ctrl',
+      templateUrl: page,
       size: 'lg',
-      resolve: {
-        stock: function () {
-          return $scope.stock;
-        }
-      }
     })
    };
+
+   $scope.confirmarVenta = function () {
+/*     var vendidos = [];
+     angular.foreach($scope.stocks, function(stock){
+        if (stock.vendiendo >= 1){
+          this.push(stock)
+        }
+     }, vendidos );
+*/
+   };
+
     editableOptions.theme = 'bs3';
     editableThemes['bs3'].submitTpl = '<button type="submit" class="btn btn-primary btn-with-icon"><i class="ion-checkmark-round"></i></button>';
     editableThemes['bs3'].cancelTpl = '<button type="button" ng-click="$form.$cancel()" class="btn btn-default btn-with-icon"><i class="ion-close-round"></i></button>';
@@ -84,3 +110,4 @@
   }
 
 })();
+

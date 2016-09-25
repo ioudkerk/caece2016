@@ -15,19 +15,16 @@
       <th st-sort="descripcion">Descripción</th>
       <th st-sort="sucursal">Sucursal</th>
       <th st-sort="cantidad">Cantidad</th>
+      <th st-sort="cantidad">Generar Venta</th>
     </tr>
     <tr>
       <th></th>
-      <th><input st-search="producto" placeholder="Busqueda por Producto" class="input-sm form-control search-input"
-                 type="search"/></th>
-      <th><input st-search="marca" placeholder="Busqueda por Marca" class="input-sm form-control search-input"
-                 type="search"/></th>
-      <th><input st-search="descripcion" placeholder="Busqueda Descripcion" class="input-sm form-control search-input"
-                 type="search"/></th>
-      <th><input st-search="sucursal" placeholder="Busqueda Sucursal" class="input-sm form-control search-input" type="search"/>
-      </th>
-      <th><input st-search="cantidad" placeholder="Busqueda Stock" class="input-sm form-control search-input" type="search"/>
-      </th>
+      <th><input st-search="producto" placeholder="Busqueda por Producto" class="input-sm form-control search-input" type="search"/></th>
+      <th><input st-search="marca" placeholder="Busqueda por Marca" class="input-sm form-control search-input" type="search"/></th>
+      <th><input st-search="descripcion" placeholder="Busqueda Descripcion" class="input-sm form-control search-input" type="search"/></th>
+      <th><input st-search="sucursal" placeholder="Busqueda Sucursal" class="input-sm form-control search-input" type="search"/></th>
+      <th><input st-search="cantidad" placeholder="Busqueda Stock" class="input-sm form-control search-input" type="search"/></th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -38,6 +35,11 @@
       <td>{{stock.descripcion}}</td>
       <td>{{stock.sucursal}}</td>
       <td>{{stock.cantidad}}</td>
+      <td>
+          <span class="col-md-6">{{stock.vendiendo}}</span>
+          <span class="col-md-3"><button class="btn btn-primary btn-sm" ng-click="addVenta(stock)">add</button></span>
+          <span class="col-md-3"><button class="btn btn-danger btn-sm" ng-click="remVenta(stock)">rem</button></span>
+      </td>
     </tr>
     </tbody>
     <tfoot>
