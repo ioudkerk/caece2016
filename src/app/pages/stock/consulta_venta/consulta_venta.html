@@ -28,7 +28,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="stock in stocks">
+    <tr ng-repeat="stock in stocks" style="border-bottom:1px solid gainsboro;">
       <td class="table-id">{{stock.id}}</td>
       <td>{{stock.producto}}</td>
       <td>{{stock.marca}}</td>
@@ -37,8 +37,8 @@
       <td>{{stock.cantidad}}</td>
       <td>
           <span class="col-md-6">{{stock.vendiendo}}</span>
-          <span class="col-md-3"><button class="btn btn-primary btn-sm" ng-click="addVenta(stock)">add</button></span>
-          <span class="col-md-3"><button class="btn btn-danger btn-sm" ng-click="remVenta(stock)">rem</button></span>
+          <span class="col-md-3"><button class="btn btn-primary btn-sm" ng-click="addVenta(stock)">Agregar</button></span>
+          <span class="col-md-3"><button class="btn btn-danger btn-sm" ng-click="remVenta(stock)">Quitar</button></span>
       </td>
     </tr>
     </tbody>

@@ -33,6 +33,16 @@
         cantidad: 30,
         vendiendo: 0
       },
+      {
+        id:3,
+        producto: 'Camisa',
+        marca: 'Polo',
+        descripcion: 'una breve descripcion del producto',
+        sucursal: 'avellaneda',
+        cantidad: 30,
+        vendiendo: 0
+      },
+
     ]
 
     $scope.new_stocks=[];
@@ -85,23 +95,21 @@
       }
    };
 
-   $scope.generarVenta = function(page) {
+   $scope.generarVenta = function() {
     var ventasModal = $uibModal.open({
       animation: true,
-      templateUrl: page,
+      templateUrl: 'app/pages/stock/consulta_venta/ventaModal.html',
       size: 'lg',
+      controller: 'ModalStockCtrl',
+      controllerAs: '$ctrl',
+      resolve: {
+        items: function () {
+          return $scope.stocks;
+        }
+      }
     })
    };
 
-   $scope.confirmarVenta = function () {
-/*     var vendidos = [];
-     angular.foreach($scope.stocks, function(stock){
-        if (stock.vendiendo >= 1){
-          this.push(stock)
-        }
-     }, vendidos );
-*/
-   };
 
     editableOptions.theme = 'bs3';
     editableThemes['bs3'].submitTpl = '<button type="submit" class="btn btn-primary btn-with-icon"><i class="ion-checkmark-round"></i></button>';
@@ -110,4 +118,3 @@
   }
 
 })();
-
