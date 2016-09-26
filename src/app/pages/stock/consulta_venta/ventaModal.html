@@ -6,8 +6,28 @@
     <h4 class="modal-title">Generar Venta</h4>
   </div>
   <div class="modal-body">
-
-
+	<div class="horizontal-scroll">
+	  <table class="table table-hover">
+	    <thead>
+	    <tr class="black-muted-bg">
+	      <th>Producto</th>
+	      <th style="text-align: center;">Marca</th>
+	      <th style="text-align: center;">Descripcion</th>
+	      <th style="text-align: center;">Cantidad</th>
+	      <th style="text-align: center;">Precio</th>
+	    </tr>
+	    </thead>
+	    <tbody>
+	    <tr ng-repeat="item in vendiendoItems">
+	      <td style="text-align: center;">{{item.producto}}</td>
+	      <td style="text-align: center;">{{item.marca}}</td>
+	      <td style="text-align: center;">{{item.descripcion}}</td>
+	      <td style="text-align: center;">{{item.vendiendo}}</td>
+	      <td style="text-align: center;">{{item.precio}}</td>
+	    </tr>
+	    </tbody>
+	  </table>
+	</div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-danger" ng-click="$dismiss()">Cancelar</button>

@@ -22,7 +22,8 @@
         descripcion: 'una breve descripcion del producto',
         sucursal: 'avellaneda',
         cantidad: 500,
-        vendiendo: 0
+        vendiendo: 0,
+	precio: 900
       },
       {
         id:2,
@@ -31,7 +32,8 @@
         descripcion: 'una breve descripcion del producto',
         sucursal: 'avellaneda',
         cantidad: 30,
-        vendiendo: 0
+        vendiendo: 0,
+	precio:500
       },
       {
         id:3,
@@ -40,7 +42,9 @@
         descripcion: 'una breve descripcion del producto',
         sucursal: 'avellaneda',
         cantidad: 30,
-        vendiendo: 0
+        vendiendo: 0,
+        precio: 300
+
       },
 
     ]
@@ -62,7 +66,8 @@
         descripcion:'',
         sucursal:'',
         cantidad:'',
-        vendiendo: 0
+        vendiendo: 0,
+        precio: 0
       };
       $scope.new_stocks.push($scope.inserted);
     };
@@ -96,6 +101,13 @@
    };
 
    $scope.generarVenta = function() {
+     var vendidos = [];
+     angular.forEach($scope.stocks, function(item){
+        if (item.vendiendo >= 1){
+          this.push(item)
+        }
+     }, vendidos );
+
     var ventasModal = $uibModal.open({
       animation: true,
       templateUrl: 'app/pages/stock/consulta_venta/ventaModal.html',
@@ -104,7 +116,7 @@
       controllerAs: '$ctrl',
       resolve: {
         items: function () {
-          return $scope.stocks;
+          return vendidos;
         }
       }
     })
