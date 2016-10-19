@@ -12,7 +12,16 @@ angular.module('BlurAdmin', [
   'ui.slimscroll',
   'ngJsTree',
   'angular-progress-button-styles',
-
   'BlurAdmin.theme',
-  'BlurAdmin.pages'
-]);
+  'BlurAdmin.pages',
+  'BlurAdmin.services'
+])
+
+.run(function($rootScope,$location){
+    $rootScope.$on('$locationChangeStart', function(event) {      
+      $location.path('/auth');
+    });
+  }
+
+);
+

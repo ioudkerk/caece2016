@@ -10,7 +10,7 @@
 
 
   /** @ngInject */
-  function StockCtrl($scope, $filter, $uibModal, editableOptions, editableThemes) {
+  function StockCtrl($scope, $filter, $uibModal, editableOptions, editableThemes) {    
 
     $scope.smartTablePageSize = 5;
 
@@ -23,7 +23,7 @@
         sucursal: 'avellaneda',
         cantidad: 500,
         vendiendo: 0,
-	precio: 900
+	      precio: 900
       },
       {
         id:2,
@@ -33,7 +33,7 @@
         sucursal: 'avellaneda',
         cantidad: 30,
         vendiendo: 0,
-	precio:500
+	      precio:500
       },
       {
         id:3,

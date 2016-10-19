@@ -20,15 +20,15 @@
           sidebarMeta: {
             icon: 'ion-grid',
             order: 300,
-          },
-        }).state('stock.basic', {
+          }
+        }).state('stock.alta', {
           url: '/AltaStock',
           templateUrl: 'app/pages/stock/main/alta.html',
           title: 'Alta',
           sidebarMeta: {
             order: 0,
           },
-        }).state('stock.smart', {
+        }).state('stock.consultaventastock', {
           url: '/ConsultaVentaStock',
           templateUrl: 'app/pages/stock/main/consulta_venta.html',
           title: 'Consulta y Venta',
@@ -36,7 +36,9 @@
             order: 100,
           },
         });
-    $urlRouterProvider.when('/stock','/stock/basic');
+
+    $urlRouterProvider.when('/stock','/stock/AltaStock');
+    
   }
 
 })();
