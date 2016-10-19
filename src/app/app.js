@@ -19,7 +19,8 @@ angular.module('BlurAdmin', [
 
 .run(function($rootScope,$location){
     $rootScope.$on('$locationChangeStart', function(event) {      
-      $location.path('/auth');
+//      $location.path('auth.html');
+      window.location = 'auth.html';
     });
   }
 

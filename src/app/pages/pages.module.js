@@ -18,9 +18,10 @@
 //    'BlurAdmin.pages.maps',
 //    'BlurAdmin.pages.profile',
   ])
-//      .config(routeConfig);
+      .config(routeConfig);
 
   /** @ngInject */
+
 /*
   function routeConfig($urlRouterProvider, baSidebarServiceProvider) {
     $urlRouterProvider.otherwise('/dashboard');
@@ -31,7 +32,7 @@
       subMenu: [{
         title: 'Sign In',
         fixedHref: 'auth.html',
-        blank: true
+        blank: false
       }, {
         title: 'Sign Up',
         fixedHref: 'reg.html',
@@ -61,4 +62,5 @@
     });
   }
 */
+
 })();
