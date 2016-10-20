@@ -16,12 +16,12 @@
         {{$index}}
     </td>
     <td>
-	<span editable-text="stock.producto" e-name="producto" e-form="rowform" e-required e-uib-typeahead="state for state in ['a','b']">
+	<span editable-text="stock.producto" e-name="producto" e-form="rowform" e-required e-uib-typeahead="state for state in productosTypeHead">
           {{ stock.producto || 'empty' }}
         </span>
     </td>
     <td>
-        <span editable-text="stock.marca" e-name="marca" e-form="rowform" e-required >
+        <span editable-text="stock.marca" e-name="marca" e-form="rowform" e-required e-uib-typeahead="state for state in marcasTypeHead">
           {{ stock.marca }}
         </span>
     </td>
@@ -31,7 +31,7 @@
         </span>
     </td>
     <td>
-        <span editable-text="stock.sucursal" e-name="sucursal" e-form="rowform" e-required >
+        <span editable-text="stock.sucursal" e-name="sucursal" e-form="rowform" e-required e-uib-typeahead="state for state in sucursalesTypeHead">
           {{ stock.sucursal }}
         </span>
     </td>

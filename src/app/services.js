@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var serverUrl="http://192.168.0.50:53395/";        
+  var serverUrl="http://localhost:53395/";        
 
  
 
@@ -39,28 +39,26 @@
   }
 
   function stockWebService($http){
-    var _stock=[
-      {
-        id: 10,
-        producto: 'pantalon',
-        marca: 'tuvie',
-        descripcion:'aja',
-        sucursal:'cabalito',
-        cantidad:'3',
-        vendiendo: 0,
-        precio: 0
-      }
-    ]
-
     return {
         getStock: function(){
           var url=serverUrl+'api/Stocks';
           return $http.get(url);
         },
-        test: function (){
-          return _stock;
-        }
+	getSucursales: function(){
+	  var url=serverUrl+'api/Sucursals';
+	  return $http.get(url);
+	},
+	getMarcas: function(){
+	  var url=serverUrl+'api/Marcas';
+	  return $http.get(url);
+	},
+	getProductos: function(){
+	  var url=serverUrl+'api/Productoes';
+	  return $http.get(url);
+	},
+
     }
+
   };
 
 })();

@@ -17,11 +17,11 @@ angular.module('BlurAdmin', [
   'BlurAdmin.services',
 ])
 
-.run(function($rootScope,$location,userIdentity){    
+.run(function($rootScope,$location,userIdentity){
     $rootScope.$on('$locationChangeStart', function(event) {        
         if ( ! userIdentity.logueado() ){          
-          //var token = $location.search().token;
-          var token = "GfQtdIRieay5DKkw4gzoFvqjKnjnSNLi6Sl-ohCBjnV8TSpfOhalFpmuxIHsfQz9WyqAvBUovlmOcepFAQ3DNpocCTk4g1TTVBajuFMt82ZRvUA0nYAd8wrfSEEqgmrwRMGfUOBPm0BgYJPZLm_4IMFSTOROoLnPB0vO-I8C_esJZK3RAXH3exIP-c0KJgRk-tmi2DhcXCfip7hxkLgkp6Lph6lk_rfXWyaa4klQWltRkcyYb-5hbwgFgjSn4VY_GqZ8KH--Hr05ODtnktkvp0706zKjqAgq338x0gxj0TBVSAkPNmaxACPHjcDr4kLoMmUbKwW6IzRqYyhxhVP1i0Tp1DnHberAsTUCc1XC0lQTadhlQe186xKgjG-YT4X6WYBMk2wCRCNWQZMQTu-oUjC7HTZ357Eyp92HtaNYnkdvjNj6QmsHnRlfCTs-19ggZ_wPC2_X2dihLap6LlV1g6whM7eLCBsxSboo7PRDZqI";
+         // var token = $location.search().token;
+          var token = "vFT2CjMdWxUI3r0iCwkZLYxv9s1kvcy7a7_2BN7d7_9W9UGuc0UZ5U_Byis8_vLMD3ejbXh2E-XHD5t_dY7Lw0lw-lG20u0NoVICElfwrNl1F7427weaaYcs-9TTG695U-D-19mWeVnEQQTU1MTxlLojevNuXchG2EZkSr28WLp6Pa8s01zHhdyrSsDGhGQW-YyBQJ2BRneDZ4-WQrE32686dpDVD-zqgm1e_RYmvWhH96roLQgZVhoaISz5y5-tVa0_lUYq8R6lIqwoaVPvBKYIvMGz4K06fR-n3DHEcPCL7-Uld1sdOYoZWez0TtbGNVX2NJD36_nSkjDGyI_VzreaOH-QcGeG_Ssmh5oKk92F5IbregFzWb_a1uc_OaOIqx04yk0oXU_zYELExxuhMA4W9-3i3D54AkF9MorIFKoveYoVx4B0DJC7efFMtKssU33iO0SwbgsUusBhwPXrK-lC4uuBwIysRMgOmDHJ5man2pCT6YWr8ldSQTqaC3wh";
           userIdentity.setToken(token);
           userIdentity.validar().then(
               function(data){      

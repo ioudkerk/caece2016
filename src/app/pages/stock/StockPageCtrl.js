@@ -13,22 +13,43 @@
   function StockCtrl(stockWebService, $scope,$filter, $uibModal, editableOptions, editableThemes,$http) {            
     
     $scope.smartTablePageSize = 5;      
-
-    //$scope.stocks = stockWebService.test();
     $scope.stocks=[];    
+    $scope.sucursalesTypeHead = [];
+    $scope.marcasTypeHead = [];
+    $scope.productosTypeHead = [];
 
-    //$scope.$on('$viewContentLoaded', function(){});
-      //Here your view content is fully loaded !!    
+    $scope.new_stocks=[];
+
+// Carga de datos
     stockWebService.getStock().then( 
       function(response){
         angular.forEach(response.data, function(value, key){
           this.push(value);
-          console.log(value);
         },$scope.stocks);
     });
                     
 
-    $scope.new_stocks=[];
+    stockWebService.getSucursales().then(
+      function(response){
+        $scope.sucursalesTypeHead=response.data;
+      }
+    );
+
+    stockWebService.getMarcas().then(
+      function(response){
+        $scope.marcasTypeHead=response.data;
+      }
+    );
+
+    stockWebService.getProductos().then(
+      function(response){
+        $scope.productosTypeHead=response.data;
+      }
+    );
+
+
+// Fin carga de datos
+
 
     $scope.removeNewStock = function(index) {
       $scope.new_stocks.splice(index, 1);
