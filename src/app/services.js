@@ -20,10 +20,12 @@
       
       return {                
         
-        setToken: function(t){ config.headers.Authorization = 'Bearer '+t },
+        setToken: function(t){ 
+		config.headers.Authorization = 'Bearer '+t 
+          	$http.defaults.headers.common['Authorization'] = config.headers.Authorization;
+	},
 
         validar : function(){
-          $http.defaults.headers.common['Authorization'] = config.headers.Authorization;
           var url=serverUrl+"api/Account/UserInfo";
           return $http.get(url);
       }

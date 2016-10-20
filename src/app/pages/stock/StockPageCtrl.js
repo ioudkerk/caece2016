@@ -20,6 +20,17 @@
     $scope.new_stocks=[];    
     $scope.lastStockID=0;
 
+// verificar el localstorage
+    if (localStorage.new_stocks !== undefined ){
+       try {
+           $scope.new_stocks=JSON.parse(localStorage.new_stocks);
+	} catch (err) {
+           $scope.new_stocks=[];
+	}
+    }
+// fin del check localstorage
+
+
 // Carga de datos
     stockWebService.getStock().then( 
       function(response){
@@ -55,7 +66,8 @@
 
 
     $scope.removeNewStock = function(index) {
-      $scope.new_stocks.splice(index, 1);
+      $scope.new_stocks.splice(index, 1);      
+      localStorage.setItem('new_stocks',JSON.stringify($scope.new_stocks));
     };
 
     $scope.removeStock = function(stock) {

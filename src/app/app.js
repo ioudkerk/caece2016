@@ -20,18 +20,22 @@ angular.module('BlurAdmin', [
 .run(function($rootScope,$location,userIdentity){
         
     $rootScope.estaLogueado=false;
-    var token = localStorage.getItem('token');    
-    if ( token === null ){
+    var token = localStorage.getItem('token'); 
+    if ( token !== null ){
+        $rootScope.estaLogueado=true;
+        userIdentity.setToken(token);
+	console.log(token)
+    } else {
         token = $location.search().token;
-    }
-    userIdentity.setToken(token);        
-    userIdentity.validar().then(
-        function(data){
-            localStorage.setItem('token',token);            
-            $rootScope.estaLogueado=true;
-        },
-        function(){
-            window.location = "auth.html";
-        }
-    );
+        userIdentity.setToken(token);
+        userIdentity.validar().then(
+            function(data){
+                localStorage.setItem('token',token);
+                $rootScope.estaLogueado=true;
+            },
+            function(){
+                window.location = "auth.html";
+           }
+       );
+   }
 });
