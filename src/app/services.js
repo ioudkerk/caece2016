@@ -1,7 +1,8 @@
 (function () {
   'use strict';
 
-  var serverUrl="http://192.168.0.50:53395/";        
+  var serverUrl="http://localhost:53395/";        
+  //var serverUrl="http://192.168.0.50:53395/";        
 
  
 

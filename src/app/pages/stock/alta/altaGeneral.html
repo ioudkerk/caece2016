@@ -16,12 +16,12 @@
         {{$index}}
     </td>
     <td>
-	<span editable-text="stock.producto" e-name="producto" e-form="rowform" e-required e-uib-typeahead="state for state in productosTypeHead | filter:$viewValue" e-typeahead-focus-on-select="false" e-typeahead-min-length="0"  >
+	<span editable-text="stock.producto" e-name="producto" e-form="rowform" e-required e-uib-typeahead="state for state in productosTypeHead | filter:$viewValue | limitTo:8" e-typeahead-focus-on-select="false" e-typeahead-min-length="0"  >
           {{ stock.producto || 'empty' }}
         </span>
     </td>
     <td>
-        <span editable-text="stock.marca" e-name="marca" e-form="rowform" e-required e-uib-typeahead="state for state in marcasTypeHead | filter:$viewValue" e-typeahead-focus-on-select="false" e-typeahead-min-length="0" >
+        <span editable-text="stock.marca" e-name="marca" e-form="rowform" e-required e-uib-typeahead="state for state in marcasTypeHead | filter:$viewValue | limitTo:8" e-typeahead-focus-on-select="false" e-typeahead-min-length="0" >
           {{ stock.marca }}
         </span>
     </td>
@@ -44,7 +44,7 @@
     <td>
       <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline"
             shown="inserted == stock">
-        <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary editable-table-button btn-xs">
+        <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary editable-table-button btn-xs" ng-click="saveStockRow(rowform.$data)" >
           Save
         </button>
         <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default editable-table-button btn-xs">

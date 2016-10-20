@@ -57,6 +57,15 @@
     $scope.removeStock = function(index) {
       $scope.stocks.splice(index, 1);
     };
+    $scope.saveStockRow = function(data){
+	if ($scope.marcasTypeHead.indexOf(data.marca) == -1) {
+	    $scope.marcasTypeHead.push(data.marca);
+	}
+	if ($scope.productosTypeHead.indexOf(data.producto) == -1) {
+	    $scope.productosTypeHead.push(data.producto);
+	}
+
+    };
 
     $scope.addNewStock = function() {
       $scope.inserted = {
