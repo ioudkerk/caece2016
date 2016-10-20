@@ -18,11 +18,11 @@
 //    'BlurAdmin.pages.maps',
 //    'BlurAdmin.pages.profile',
   ])
-      .config(routeConfig);
 
   /** @ngInject */
 
-/*
+  .config(routeConfig);
+
   function routeConfig($urlRouterProvider, baSidebarServiceProvider) {
     $urlRouterProvider.otherwise('/dashboard');
 
@@ -61,6 +61,5 @@
       }]
     });
   }
-*/
 
 })();

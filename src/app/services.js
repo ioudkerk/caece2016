@@ -1,10 +1,15 @@
-angular.
-module('BlurAdmin.services', []).
+(function () {
+  'use strict';
 
- 
-factory('checklogin', [function() {
-    console.log("estoy o no estoy logueado");    
-        return function(){        
+  angular.module('BlurAdmin.services',[])
+      .factory('userIdentity', userIdentity);
+
+  /** @ngInject */
+  function userIdentity() {
+    return {
+      logueado: false,
+      }
     };
- }]);
+
+})();
 

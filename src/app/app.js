@@ -14,15 +14,14 @@ angular.module('BlurAdmin', [
   'angular-progress-button-styles',
   'BlurAdmin.theme',
   'BlurAdmin.pages',
-  'BlurAdmin.services'
+  'BlurAdmin.services',
 ])
 
-.run(function($rootScope,$location){
+.run(function($rootScope,$location,userIdentity){
     $rootScope.$on('$locationChangeStart', function(event) {      
-//      $location.path('auth.html');
-      window.location = 'auth.html';
-    });
-  }
-
-);
+      if ( ! userIdentity.logueado ){
+          window.location = 'auth.html';
+      }
+    }
+)});
 
