@@ -28,6 +28,7 @@
           if ( $scope.lastStockID < value.id ){
             $scope.lastStockID = value.id;
           }
+          console.log(value);
           this.push(value);
         },$scope.stocks);
     });
@@ -59,11 +60,11 @@
     };
 
     $scope.removeStock = function(stock) {
-      stockWebService.delStock(stock.id).then(
+      stockWebService.delStock(stock.hash).then(
         function(){          
           var i;
           for(i=0;i<$scope.stocks.length;i++){            
-            if (stock.id == $scope.stocks[i].id ){
+            if (stock.hash == $scope.stocks[i].hash ){
               $scope.stocks.splice(i,1);
             }
           }
@@ -99,7 +100,6 @@
     $scope.saveNewStock = function(){ 
       angular.forEach($scope.new_stocks, function(new_stock){
         new_stock.hash=md5.createHash(new_stock.producto+"|"+new_stock.descripcion+"|"+new_stock.marca)
-        console.log("agregando el md5: "+new_stock.hash);
       });
       stockWebService.postStock($scope.new_stocks).then(
         function(){

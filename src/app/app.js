@@ -26,6 +26,7 @@ angular.module('BlurAdmin', [
     userIdentity.validar().then(
         function(data){            
             $rootScope.estaLogueado=true;
+            console.log(token);
         },
         function(){
             window.location = "auth.html";                    
