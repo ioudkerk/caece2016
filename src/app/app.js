@@ -18,9 +18,15 @@ angular.module('BlurAdmin', [
 ])
 
 .run(function($rootScope,$location,userIdentity){
-    $rootScope.$on('$locationChangeStart', function(event) {      
+    $rootScope.$on('$locationChangeStart', function(event) {
       if ( ! userIdentity.logueado ){
-          window.location = 'auth.html';
+          var token = $location.search().token;
+          userIdentity.token(token);
+          if ( ! userIdentity.validar() ){
+              console.log("no estoy validado");
+              window.location = 'auth.html';
+          }
+          console.log("que onda?");
       }
     }
 )});
