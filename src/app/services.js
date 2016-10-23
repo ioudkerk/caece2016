@@ -38,9 +38,12 @@
 
   }
 
-  function stockWebService(){
+  function stockWebService($http){
     return {
-        prueba: true,
+        getStock: function(){
+          var url=serverUrl+'api/Stocks';
+          return $http.get(url);
+        }
     }
   };
 

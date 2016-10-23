@@ -10,44 +10,14 @@
 
 
   /** @ngInject */
-  function StockCtrl($scope, $filter, $uibModal, editableOptions, editableThemes) {    
+  function StockCtrl(stockWebService, $scope, $filter, $uibModal, editableOptions, editableThemes) {        
+    
+    $scope.smartTablePageSize = 5;      
 
-    $scope.smartTablePageSize = 5;
-
-    $scope.stocks = [
-      {
-        id:1,
-        producto: 'Jean',
-        marca: 'Polo',
-        descripcion: 'una breve descripcion del producto',
-        sucursal: 'avellaneda',
-        cantidad: 500,
-        vendiendo: 0,
-	      precio: 900
-      },
-      {
-        id:2,
-        producto: 'Camisa',
-        marca: 'Polo',
-        descripcion: 'una breve descripcion del producto',
-        sucursal: 'avellaneda',
-        cantidad: 30,
-        vendiendo: 0,
-	      precio:500
-      },
-      {
-        id:3,
-        producto: 'Camisa',
-        marca: 'Polo',
-        descripcion: 'una breve descripcion del producto',
-        sucursal: 'avellaneda',
-        cantidad: 30,
-        vendiendo: 0,
-        precio: 300
-
-      },
-
-    ]
+    stockWebService.getStock().then( 
+      function(response){          
+        $scope.stocks=response.data;
+    });            
 
     $scope.new_stocks=[];
 
@@ -129,6 +99,7 @@
     editableOptions.theme = 'bs3';
     editableThemes['bs3'].submitTpl = '<button type="submit" class="btn btn-primary btn-with-icon"><i class="ion-checkmark-round"></i></button>';
     editableThemes['bs3'].cancelTpl = '<button type="button" ng-click="$form.$cancel()" class="btn btn-default btn-with-icon"><i class="ion-close-round"></i></button>';
+
 
   }
 
