@@ -23,6 +23,8 @@
         logueado: function() {        
           return config.status.logueado;
         },
+
+        setStatusLogueado: function(s){ config.status.logueado = s },        
         
         setToken: function(t){ config.headers.Authorization = 'Bearer '+t },
 
