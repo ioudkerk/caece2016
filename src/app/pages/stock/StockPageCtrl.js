@@ -10,14 +10,18 @@
 
 
   /** @ngInject */
-  function StockCtrl(stockWebService, $scope, $filter, $uibModal, editableOptions, editableThemes) {        
+  function StockCtrl(stockWebService, $scope, $filter, $uibModal, editableOptions, editableThemes,$http) {        
     
     $scope.smartTablePageSize = 5;      
 
+    //$scope.stocks = stockWebService.test();
+    
     stockWebService.getStock().then( 
       function(response){          
         $scope.stocks=response.data;
     });            
+
+            
 
     $scope.new_stocks=[];
 

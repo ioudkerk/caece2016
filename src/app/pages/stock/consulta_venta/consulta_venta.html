@@ -1,4 +1,4 @@
-<div class="horizontal-scroll">
+<div class="horizontal-scroll">  
   <div class="form-group select-pcantidad-size-wrap ">
     <label>Cantidad de filas
       <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker
@@ -6,8 +6,10 @@
       </select>
     </label>
   </div>
+  
   <table class="table" st-table="stocks">
     <thead>
+    
     <tr class="sortable ">
       <th class="table-id" st-sort="id" st-sort-default="true">#</th>
       <th st-sort="producto">Producto</th>
@@ -26,6 +28,7 @@
       <th><input st-search="cantidad" placeholder="Busqueda Stock" class="input-sm form-control search-input" type="search"/></th>
       <th></th>
     </tr>
+    
     </thead>    
     <tbody>      
     <tr ng-repeat="stock in stocks" style="border-bottom:1px solid gainsboro;">
@@ -41,13 +44,12 @@
           <button class="btn btn-primary editable-table-button btn-xs" ng-click="addVenta(stock)" >Agregar</button>
           <button class="btn btn-danger editable-table-button btn-xs" ng-click="remVenta(stock)" >Quitar</button>
           </span>
-          <!--
-          <button class="btn btn-primary btn-sm" ng-click="addVenta(stock)">Agregar</button>
-          <button class="btn btn-danger btn-sm" ng-click="remVenta(stock)">Quitar</button>
-          -->
+          
+          
       </td>
     </tr>
     </tbody>
+    
     <tfoot>
     <tr>
       <td colspan="6" class="text-center">
@@ -56,4 +58,5 @@
     </tr>
     </tfoot>
   </table>
+  
 </div>
