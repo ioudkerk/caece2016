@@ -39,10 +39,26 @@
   }
 
   function stockWebService($http){
+    var _stock=[
+      {
+        id: 10,
+        producto: 'pantalon',
+        marca: 'tuvie',
+        descripcion:'aja',
+        sucursal:'cabalito',
+        cantidad:'3',
+        vendiendo: 0,
+        precio: 0
+      }
+    ]
+
     return {
         getStock: function(){
           var url=serverUrl+'api/Stocks';
           return $http.get(url);
+        },
+        test: function (){
+          return _stock;
         }
     }
   };
