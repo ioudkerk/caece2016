@@ -10,18 +10,23 @@
 
 
   /** @ngInject */
-  function StockCtrl(stockWebService, $scope, $filter, $uibModal, editableOptions, editableThemes,$http) {        
+  function StockCtrl(stockWebService, $scope,$filter, $uibModal, editableOptions, editableThemes,$http) {            
     
     $scope.smartTablePageSize = 5;      
 
     //$scope.stocks = stockWebService.test();
-    
-    stockWebService.getStock().then( 
-      function(response){          
-        $scope.stocks=response.data;
-    });            
+    $scope.stocks=[];    
 
-            
+    //$scope.$on('$viewContentLoaded', function(){});
+      //Here your view content is fully loaded !!    
+    stockWebService.getStock().then( 
+      function(response){
+        angular.forEach(response.data, function(value, key){
+          this.push(value);
+          console.log(value);
+        },$scope.stocks);
+    });
+                    
 
     $scope.new_stocks=[];
 

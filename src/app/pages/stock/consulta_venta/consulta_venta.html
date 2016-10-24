@@ -6,7 +6,7 @@
       </select>
     </label>
   </div>  
-  <table class="table" st-table="stocks">  
+  <table class="table" st-table="stocksData" st-safe-src="stocks">  
     <thead>
     
     <tr class="sortable ">
@@ -30,7 +30,7 @@
     
     </thead>    
     <tbody>      
-    <tr ng-repeat="stock in stocks" style="border-bottom:1px solid gainsboro;">
+    <tr ng-repeat="stock in stocksData" style="border-bottom:1px solid gainsboro;">
       <td class="table-id">{{stock.id}}</td>
       <td>{{stock.producto}}</td>
       <td>{{stock.marca}}</td>
