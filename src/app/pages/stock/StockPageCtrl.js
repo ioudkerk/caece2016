@@ -72,13 +72,23 @@
       $scope.new_stocks.push($scope.inserted);
     };
 
-    $scope.saveNewStock = function(){
-      angular.forEach($scope.new_stocks, function(new_stock){
-         new_stock.id=$scope.stocks.length+1;
-         this.push(new_stock);
-      },$scope.stocks);
-      $scope.new_stocks=[];
-    };
+    $scope.saveNewStock = function(){ 
+      stockWebService.postStock($scope.new_stocks).then(
+        function(){
+          angular.forEach($scope.new_stocks, function(new_stock){
+            new_stock.id=$scope.stocks.length+1;
+            this.push(new_stock);
+            },$scope.stocks);
+            $scope.new_stocks=[];            
+        });  
+    }
+    // $scope.saveNewStock = function(){
+    //   angular.forEach($scope.new_stocks, function(new_stock){
+    //      new_stock.id=$scope.stocks.length+1;
+    //      this.push(new_stock);
+    //   },$scope.stocks);
+    //   $scope.new_stocks=[];
+    // };
 
    $scope.addVenta = function (stock) {
       if (stock.cantidad > 0) {

@@ -21,7 +21,7 @@ angular.module('BlurAdmin', [
     $rootScope.$on('$locationChangeStart', function(event) {        
         if ( ! userIdentity.logueado() ){          
          // var token = $location.search().token;
-          var token = "vFT2CjMdWxUI3r0iCwkZLYxv9s1kvcy7a7_2BN7d7_9W9UGuc0UZ5U_Byis8_vLMD3ejbXh2E-XHD5t_dY7Lw0lw-lG20u0NoVICElfwrNl1F7427weaaYcs-9TTG695U-D-19mWeVnEQQTU1MTxlLojevNuXchG2EZkSr28WLp6Pa8s01zHhdyrSsDGhGQW-YyBQJ2BRneDZ4-WQrE32686dpDVD-zqgm1e_RYmvWhH96roLQgZVhoaISz5y5-tVa0_lUYq8R6lIqwoaVPvBKYIvMGz4K06fR-n3DHEcPCL7-Uld1sdOYoZWez0TtbGNVX2NJD36_nSkjDGyI_VzreaOH-QcGeG_Ssmh5oKk92F5IbregFzWb_a1uc_OaOIqx04yk0oXU_zYELExxuhMA4W9-3i3D54AkF9MorIFKoveYoVx4B0DJC7efFMtKssU33iO0SwbgsUusBhwPXrK-lC4uuBwIysRMgOmDHJ5man2pCT6YWr8ldSQTqaC3wh";
+          var token = "hnSSI59_qgw_GqV9BBp2luNvKZVFHS7evxa_pJai1QwcpCgUugvwGyc7x0o9dAjFIkHaYEeGdRf6INgS-MNwuRyu-FYUg_vxxmD74qwvueYxJsVg0FlQIk9WsX6X9-CrZag-5aCJ3rUna4CmjsEAdVL5uVCQnw6EhIef9Rkqo1-FTHr4LA_z1JExXY1jqmq-I-WUEsYoklDJnmQwFRBObZwPsfQf_l5Ps0KyQxoOTw_Inu8odFj1XNuVuNrMKA-mwCd7EDHPcICLw4Ij1XQGkVDOIKByZymO7nNUXQOX6Uht3v8R8CGEH6blnAbTGa2Ldx2dnG2A6aY61d3Uxg-xJhuUIORPndGetKKoebMlhLKyAFjnVc0CAV69_rXyMpZuunKKuo7ffZjyeKHn5O6xYLpUuDWq4TfVEEfuyhcbzwZHdgTyjGiBMeFtjnOg19E_JwVglQdVxZkMMudd-AqJE8Fp20MFkojw3bqJMmd349h0sVixAIgR4uvYlY2o7Tet";
           userIdentity.setToken(token);
           userIdentity.validar().then(
               function(data){      
