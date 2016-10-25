@@ -16,7 +16,7 @@
         {{$index}}
     </td>
     <td>
-	<span editable-text="stock.producto" e-name="producto" e-form="rowform" e-required e-uib-typeahead="state for state in productosTypeHead">
+	<span editable-text="stock.producto" e-name="producto" e-form="rowform" e-required e-uib-typeahead="state for state in productosTypeHead" e-typeahead-popup-template-url="customPopupTemplate.html">
           {{ stock.producto || 'empty' }}
         </span>
     </td>
