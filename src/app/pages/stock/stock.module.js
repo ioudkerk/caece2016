@@ -24,7 +24,7 @@
         }).state('stock.alta', {
           url: '/AltaStock',
           templateUrl: 'app/pages/stock/main/alta.html',
-          title: 'Alta',
+          title: 'Administrar Stock',
           sidebarMeta: {
             order: 0,
           },

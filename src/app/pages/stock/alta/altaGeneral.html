@@ -16,12 +16,12 @@
         {{$index}}
     </td>
     <td>
-	<span editable-text="stock.producto" e-name="producto" e-form="rowform" e-required e-uib-typeahead="state for state in productosTypeHead" e-typeahead-popup-template-url="customPopupTemplate.html">
+	<span editable-text="stock.producto" e-name="producto" e-form="rowform" e-required e-uib-typeahead="state for state in productosTypeHead | filter:$viewValue" e-typeahead-focus-on-select="false" e-typeahead-min-length="0"  >
           {{ stock.producto || 'empty' }}
         </span>
     </td>
     <td>
-        <span editable-text="stock.marca" e-name="marca" e-form="rowform" e-required e-uib-typeahead="state for state in marcasTypeHead">
+        <span editable-text="stock.marca" e-name="marca" e-form="rowform" e-required e-uib-typeahead="state for state in marcasTypeHead | filter:$viewValue" e-typeahead-focus-on-select="false" e-typeahead-min-length="0" >
           {{ stock.marca }}
         </span>
     </td>
@@ -31,7 +31,7 @@
         </span>
     </td>
     <td>
-        <span editable-text="stock.sucursal" e-name="sucursal" e-form="rowform" e-required e-uib-typeahead="state for state in sucursalesTypeHead">
+        <span editable-text="stock.sucursal" e-name="sucursal" e-form="rowform" e-required e-uib-typeahead="state for state in sucursalesTypeHead | filter:$viewValue" e-typeahead-focus-on-select="false" e-typeahead-min-length="0" >
           {{ stock.sucursal }}
         </span>
     </td>
