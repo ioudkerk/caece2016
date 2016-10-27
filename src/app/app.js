@@ -18,18 +18,40 @@ angular.module('BlurAdmin', [
 ])
 
 .run(function($rootScope,$location,userIdentity){
-    $rootScope.$on('$locationChangeStart', function(event) {        
-        if ( ! userIdentity.logueado() ){          
-          var token = $location.search().token;
-          userIdentity.setToken(token);
-          userIdentity.validar().then(
-              function(data){      
-                  userIdentity.setStatusLogueado(true);                  
-                },
-                function(){                    
-                    window.location = "auth.html";
-                }
-          );
-      }      
-    }
-)});
+    var token = $location.search().token;
+    console.log(token);
+    console.log("uno")          
+    userIdentity.setToken(token);                    
+    userIdentity.validar().then(
+        function(data){      
+            console.log("dos");
+            userIdentity.setStatusLogueado(true);                  
+            console.log("logueado");
+        },
+        function(){            
+            window.location = "auth.html";                    
+        }
+    );
+    // $rootScope.$on('$locationChangeStart', function(event) {
+    //     console.log("uno");        
+    //     if ( ! userIdentity.logueado() ){
+    //       console.log("dos");          
+    //       var token = $location.search().token;
+    //       console.log(token);          
+    //       userIdentity.setToken(token);                    
+    //       userIdentity.validar().then(
+    //           function(data){      
+    //               console.log("tres");
+    //               userIdentity.setStatusLogueado(true);                  
+    //               console.log("logueado");
+    //             },
+    //             function(){                    
+    //                 console.log("arafue");
+    //                 window.location = "auth.html";                    
+    //             }
+    //       );
+    //       console.log("cuatro");
+    //   }     
+    //   console.log("cinco");
+    // });
+});

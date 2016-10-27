@@ -45,22 +45,22 @@
           var url=serverUrl+'api/Stocks';
           return $http.get(url);
         },
-	getSucursales: function(){
-	  var url=serverUrl+'api/Sucursals';
-	  return $http.get(url);
-	},
-	getMarcas: function(){
-	  var url=serverUrl+'api/Marcas';
-	  return $http.get(url);
-	},
-	getProductos: function(){
-	  var url=serverUrl+'api/Productoes';
-	  return $http.get(url);
-	},
-	postStock: function(data){
-	  var url=serverUrl+'api/Stocks';
-	  return $http.post(url,data);
-	},
+      	getSucursales: function(){
+      	  var url=serverUrl+'api/Sucursals';
+      	  return $http.get(url);
+      	},
+      	getMarcas: function(){
+      	  var url=serverUrl+'api/Marcas';
+      	  return $http.get(url);
+      	},
+      	getProductos: function(){
+      	  var url=serverUrl+'api/Productoes';
+      	  return $http.get(url);
+      	},
+      	postStock: function(data){
+      	  var url=serverUrl+'api/Stocks';
+      	  return $http.post(url,data);
+      	},
     }
 
   };
