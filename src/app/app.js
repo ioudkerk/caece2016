@@ -18,17 +18,15 @@ angular.module('BlurAdmin', [
 ])
 
 .run(function($rootScope,$location,userIdentity){
-    var token = $location.search().token;
-    console.log(token);
-    console.log("uno")          
-    userIdentity.setToken(token);                    
+    $rootScope.estaLogueado=false;
+    var token = $location.search().token;          
+    userIdentity.setToken(token);
     userIdentity.validar().then(
-        function(data){      
-            console.log("dos");
+        function(data){
             userIdentity.setStatusLogueado(true);                  
-            console.log("logueado");
+            $rootScope.estaLogueado=true;
         },
-        function(){            
+        function(){
             window.location = "auth.html";                    
         }
     );

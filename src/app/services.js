@@ -11,27 +11,19 @@
       .factory('stockWebService', stockWebService);
   
   function userIdentity($http) {
-      var config = {  
-        status: {
-          logueado: false,
-        },
+      var config = {
         headers: {
-          Authorization: '',      
+          Authorization: '',
         }
       };
       
-      return {
-        logueado: function() {        
-          return config.status.logueado;
-        },
-
-        setStatusLogueado: function(s){ config.status.logueado = s },        
+      return {                
         
         setToken: function(t){ config.headers.Authorization = 'Bearer '+t },
 
         validar : function(){
           $http.defaults.headers.common['Authorization'] = config.headers.Authorization;
-          var url=serverUrl+"api/Account/UserInfo";          
+          var url=serverUrl+"api/Account/UserInfo";
           return $http.get(url);
       }
 
