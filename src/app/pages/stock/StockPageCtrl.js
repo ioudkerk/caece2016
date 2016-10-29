@@ -19,15 +19,18 @@
     $scope.productosTypeHead = [];
 
     $scope.new_stocks=[];
+    $scope.lastStockID=0;
 
 // Carga de datos
     stockWebService.getStock().then( 
       function(response){
         angular.forEach(response.data, function(value, key){
+          if ( $scope.lastStockID < value.id ){
+            $scope.lastStockID = value.id;
+          }
           this.push(value);
         },$scope.stocks);
     });
-                    
 
     stockWebService.getSucursales().then(
       function(response){
@@ -54,8 +57,20 @@
     $scope.removeNewStock = function(index) {
       $scope.new_stocks.splice(index, 1);
     };
-    $scope.removeStock = function(index) {
-      $scope.stocks.splice(index, 1);
+
+    $scope.removeStock = function(stock) {
+      stockWebService.delStock(stock.id).then(
+        function(){          
+          var i;
+          for(i=0;i<$scope.stocks.length;i++){            
+            if (stock.id == $scope.stocks[i].id ){
+              $scope.stocks.splice(i,1);
+            }
+          }
+        }
+      );
+      
+
     };
     $scope.saveStockRow = function(data){
 	if ($scope.marcasTypeHead.indexOf(data.marca) == -1) {
@@ -85,8 +100,10 @@
       stockWebService.postStock($scope.new_stocks).then(
         function(){
           angular.forEach($scope.new_stocks, function(new_stock){
-            new_stock.id=$scope.stocks.length+1;
-            this.push(new_stock);
+            //new_stock.id=$scope.stocks.length+1;
+            $scope.lastStockID+=1;
+            new_stock.id=$scope.lastStockID;
+            this.push(new_stock);            
             },$scope.stocks);
             $scope.new_stocks=[];            
         });  

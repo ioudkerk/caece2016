@@ -9,7 +9,7 @@
   </tr>
   <tr ng-repeat="stock in stocks" class="editable-row">
     <td>
-        {{$index}}
+        {{stock.id}}
     </td>
     <td>
 	<span editable-text="stock.producto" e-name="producto" e-form="rowform" e-required e-uib-typeahead="state for state in ['a','b']">
@@ -48,7 +48,7 @@
       </form>
       <div class="buttons" ng-show="!rowform.$visible">
         <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Edit</button>
-        <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeStock($index)">Delete</button>
+        <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeStock(stock)">Delete</button>
       </div>
     </td>
   </tr>

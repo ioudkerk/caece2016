@@ -53,6 +53,10 @@
       	  var url=serverUrl+'api/Stocks';
       	  return $http.post(url,data);
       	},
+        delStock: function(data){
+          var url=serverUrl+'api/Stocks/'+data;
+          return $http.delete(url)
+        }      
     }
 
   };
