@@ -10,7 +10,7 @@
 
 
   /** @ngInject */
-  function StockCtrl(stockWebService, $scope,$filter, $uibModal, editableOptions, editableThemes,$http) {            
+  function StockCtrl(stockWebService, $scope,$filter, $uibModal, editableOptions, editableThemes,$http,md5) {            
     
     $scope.smartTablePageSize = 5;      
     $scope.stocks=[];    
@@ -97,6 +97,10 @@
     };
 
     $scope.saveNewStock = function(){ 
+      angular.forEach($scope.new_stocks, function(new_stock){
+        new_stock.hash=md5.createHash(new_stock.producto+"|"+new_stock.descripcion+"|"+new_stock.marca)
+        console.log("agregando el md5: "+new_stock.hash);
+      });
       stockWebService.postStock($scope.new_stocks).then(
         function(){
           angular.forEach($scope.new_stocks, function(new_stock){
