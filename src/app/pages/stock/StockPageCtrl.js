@@ -28,7 +28,7 @@
           if ( $scope.lastStockID < value.id ){
             $scope.lastStockID = value.id;
           }
-          console.log(value);
+          //console.log(value);
           this.push(value);
         },$scope.stocks);
     });
@@ -74,12 +74,12 @@
 
     };
     $scope.saveStockRow = function(data){
-	if ($scope.marcasTypeHead.indexOf(data.marca) == -1) {
-	    $scope.marcasTypeHead.push(data.marca);
-	}
-	if ($scope.productosTypeHead.indexOf(data.producto) == -1) {
-	    $scope.productosTypeHead.push(data.producto);
-	}
+      	if ($scope.marcasTypeHead.indexOf(data.marca) == -1) {
+      	    $scope.marcasTypeHead.push(data.marca);
+      	}
+      	if ($scope.productosTypeHead.indexOf(data.producto) == -1) {
+      	    $scope.productosTypeHead.push(data.producto);
+      	}
 
     };
 
@@ -99,26 +99,29 @@
 
     $scope.saveNewStock = function(){ 
       angular.forEach($scope.new_stocks, function(new_stock){
-        new_stock.hash=md5.createHash(new_stock.producto+"|"+new_stock.descripcion+"|"+new_stock.marca)
+        new_stock.hash=md5.createHash(new_stock.id+"|"+new_stock.producto+"|"+new_stock.descripcion+"|"+new_stock.marca)
       });
       stockWebService.postStock($scope.new_stocks).then(
         function(){
-          angular.forEach($scope.new_stocks, function(new_stock){
-            //new_stock.id=$scope.stocks.length+1;
+          angular.forEach($scope.new_stocks, function(new_stock){            
             $scope.lastStockID+=1;
             new_stock.id=$scope.lastStockID;
             this.push(new_stock);            
             },$scope.stocks);
             $scope.new_stocks=[];            
         });  
+    };
+
+    $scope.modifyStock = function(stock){
+      console.log(stock);
+      stockWebService.putStock(stock).then(function(){
+        console.log("modificacion correcta");
+      },
+      function(){
+        console.log("error en la modificacion");
+      });
     }
-    // $scope.saveNewStock = function(){
-    //   angular.forEach($scope.new_stocks, function(new_stock){
-    //      new_stock.id=$scope.stocks.length+1;
-    //      this.push(new_stock);
-    //   },$scope.stocks);
-    //   $scope.new_stocks=[];
-    // };
+    
 
    $scope.addVenta = function (stock) {
       if (stock.cantidad > 0) {

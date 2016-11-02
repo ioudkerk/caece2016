@@ -1,8 +1,8 @@
 (function () {
   'use strict';
 
-  var serverUrl="http://localhost:53395/";        
-  //var serverUrl="http://192.168.0.50:53395/";        
+  //var serverUrl="http://localhost:53395/";        
+  var serverUrl="http://192.168.0.50:53395/";        
 
  
 
@@ -55,8 +55,12 @@
       	},
         delStock: function(data){
           var url=serverUrl+'api/Stocks?hash='+data;
-          return $http.delete(url)
-        }      
+          return $http.delete(url);
+        },
+        putStock: function(data){
+          var url=serverUrl+'api/Stocks?hash='+data.hash;
+          return $http.put(url,data);
+        }         
     }
 
   };

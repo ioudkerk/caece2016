@@ -12,7 +12,7 @@
         {{stock.id}}
     </td>
     <td>
-	<span editable-text="stock.producto" e-name="producto" e-form="rowform" e-required e-uib-typeahead="state for state in ['a','b']">
+	<span editable-text="stock.producto" e-name="producto" e-form="rowform" e-required >
           {{ stock.producto || 'empty' }}
         </span>
     </td>
@@ -38,7 +38,7 @@
     </td>
 
     <td>
-      <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline" > 
+      <form editable-form name="rowform" ng-show="rowform.$visible" onbeforesave="modifyStock(stock)" class="form-buttons form-inline" > 
         <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary editable-table-button btn-xs">
           Save
         </button>
