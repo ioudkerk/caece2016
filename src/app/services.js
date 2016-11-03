@@ -11,6 +11,7 @@
       .factory('stockWebService', stockWebService);
   
   function userIdentity($http) {
+      $http.defaults.timeout = 3000;
       var config = {
         headers: {
           Authorization: '',

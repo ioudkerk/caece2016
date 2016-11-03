@@ -17,8 +17,7 @@
     $scope.sucursalesTypeHead = [];
     $scope.marcasTypeHead = [];
     $scope.productosTypeHead = [];
-
-    $scope.new_stocks=[];
+    $scope.new_stocks=[];    
     $scope.lastStockID=0;
 
 // Carga de datos
@@ -108,7 +107,14 @@
             new_stock.id=$scope.lastStockID;
             this.push(new_stock);            
             },$scope.stocks);
-            $scope.new_stocks=[];            
+            $scope.new_stocks=[];
+            localStorage.removeItem('new_stocks');
+        },
+        function(){
+          console.log("no hay conexion");
+          alert("no hay conexion! Los cambios seran guardados hasta la proxima syncronizacion");
+          localStorage.setItem('new_stocks',JSON.stringify($scope.new_stocks));
+          console.log(localStorage.getItem.new_stocks );
         });  
     };
 
