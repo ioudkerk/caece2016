@@ -1,55 +1,55 @@
 <table class="table table-bordered table-hover table-condensed">
-  <tr>
-    <td></td>
-    <td>Producto</td>
-    <td>Marca</td>
-    <td>Descripcion</td>
-    <td>Sucursal</td>
-    <td>Cantidad</td>
-  </tr>
-  <tr ng-repeat="stock in stocks" class="editable-row">
-    <td>
-        {{stock.id}}
-    </td>
-    <td>
-	<span editable-text="stock.producto" e-name="producto" e-form="rowform" e-required >
+	<tr>
+		<td></td>
+		<td>Producto</td>
+		<td>Marca</td>
+		<td>Descripcion</td>
+		<td>Sucursal</td>
+		<td>Cantidad</td>
+	</tr>
+	<tr ng-repeat="stock in stocks" class="editable-row">
+		<td>
+			{{stock.id}}
+		</td>
+		<td>
+			<span editable-text="stock.producto" e-name="producto" e-form="rowform" e-required>
           {{ stock.producto || 'empty' }}
         </span>
-    </td>
-    <td>
-        <span editable-text="stock.marca" e-name="marca" e-form="rowform" e-required >
+		</td>
+		<td>
+			<span editable-text="stock.marca" e-name="marca" e-form="rowform" e-required>
           {{ stock.marca }}
         </span>
-    </td>
-    <td>
-        <span editable-text="stock.descripcion" e-name="descripcion" e-form="rowform" e-required >
+		</td>
+		<td>
+			<span editable-text="stock.descripcion" e-name="descripcion" e-form="rowform" e-required>
           {{ stock.descripcion }}
         </span>
-    </td>
-    <td>
-        <span editable-text="stock.sucursal" e-name="sucursal" e-form="rowform" e-required >
+		</td>
+		<td>
+			<span editable-text="stock.sucursal" e-name="sucursal" e-form="rowform" e-required>
           {{ stock.sucursal }}
         </span>
-    </td>
-    <td>
-        <span editable-text="stock.cantidad" e-name="cantidad" e-form="rowform" e-required >
+		</td>
+		<td>
+			<span editable-text="stock.cantidad" e-name="cantidad" e-form="rowform" e-required>
           {{ stock.cantidad }}
         </span>
-    </td>
+		</td>
 
-    <td>
-      <form editable-form name="rowform" ng-show="rowform.$visible" onbeforesave="modifyStock(stock)" class="form-buttons form-inline" > 
-        <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary editable-table-button btn-xs">
+		<td>
+			<form editable-form name="rowform" ng-show="rowform.$visible" onbeforesave="modifyStock(stock)" class="form-buttons form-inline">
+				<button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary editable-table-button btn-xs">
           Save
         </button>
-        <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default editable-table-button btn-xs">
+				<button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default editable-table-button btn-xs">
           Cancel
         </button>
-      </form>
-      <div class="buttons" ng-show="!rowform.$visible">
-        <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Edit</button>
-        <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeStock(stock)">Delete</button>
-      </div>
-    </td>
-  </tr>
+			</form>
+			<div class="buttons" ng-show="!rowform.$visible">
+				<button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Edit</button>
+				<button class="btn btn-danger editable-table-button btn-xs" ng-click="removeStock(stock)">Delete</button>
+			</div>
+		</td>
+	</tr>
 </table>

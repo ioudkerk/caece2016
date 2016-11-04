@@ -2,65 +2,72 @@
  * @author v.lugovsky
  * created on 16.12.2015
  */
-(function () {
-  'use strict';
+;(function () {
+  'use strict'
 
   angular.module('BlurAdmin.pages', [
     'ui.router',
 
     'BlurAdmin.pages.dashboard',
     'BlurAdmin.pages.stock',
-//    'BlurAdmin.pages.ui',
-//    'BlurAdmin.pages.components',
-//    'BlurAdmin.pages.form',
-//    'BlurAdmin.pages.tables',
-//    'BlurAdmin.pages.charts',
-//    'BlurAdmin.pages.maps',
-//    'BlurAdmin.pages.profile',
+  //    'BlurAdmin.pages.ui',
+  //    'BlurAdmin.pages.components',
+  //    'BlurAdmin.pages.form',
+  //    'BlurAdmin.pages.tables',
+  //    'BlurAdmin.pages.charts',
+  //    'BlurAdmin.pages.maps',
+  //    'BlurAdmin.pages.profile',
   ])
 
-  /** @ngInject */
+    /** @ngInject */
 
-  .config(routeConfig);
+    .config(routeConfig)
 
-  function routeConfig($urlRouterProvider, baSidebarServiceProvider) {
+  function routeConfig ($urlRouterProvider, $stateProvider, baSidebarServiceProvider) {
+    $stateProvider
+      .state('logout', {
+        url: '/logout',
+        controller: function () {
+          localStorage.clear()
+          window.location = 'auth.html'
+        }
+      })
     $urlRouterProvider.otherwise('/dashboard');
-/*
-    baSidebarServiceProvider.addStaticItem({
-      title: 'Pages',
-      icon: 'ion-document',
-      subMenu: [{
-        title: 'Sign In',
-        fixedHref: 'auth.html',
-        blank: false
-      }, {
-        title: 'Sign Up',
-        fixedHref: 'reg.html',
-        blank: true
-      }, {
-        title: 'User Profile',
-        stateRef: 'profile'
-      }, {
-        title: '404 Page',
-        fixedHref: '404.html',
-        blank: true
-      }]
-    });
-    baSidebarServiceProvider.addStaticItem({
-      title: 'Menu Level 1',
-      icon: 'ion-ios-more',
-      subMenu: [{
-        title: 'Menu Level 1.1',
-        disabled: true
-      }, {
-        title: 'Menu Level 1.2',
+  /*
+      baSidebarServiceProvider.addStaticItem({
+        title: 'Pages',
+        icon: 'ion-document',
         subMenu: [{
-          title: 'Menu Level 1.2.1',
-          disabled: true
+          title: 'Sign In',
+          fixedHref: 'auth.html',
+          blank: false
+        }, {
+          title: 'Sign Up',
+          fixedHref: 'reg.html',
+          blank: true
+        }, {
+          title: 'User Profile',
+          stateRef: 'profile'
+        }, {
+          title: '404 Page',
+          fixedHref: '404.html',
+          blank: true
         }]
-      }]
-    });
-    */
+      })
+      baSidebarServiceProvider.addStaticItem({
+        title: 'Menu Level 1',
+        icon: 'ion-ios-more',
+        subMenu: [{
+          title: 'Menu Level 1.1',
+          disabled: true
+        }, {
+          title: 'Menu Level 1.2',
+          subMenu: [{
+            title: 'Menu Level 1.2.1',
+            disabled: true
+          }]
+        }]
+      })
+      */
   }
-
-})();
+})()
