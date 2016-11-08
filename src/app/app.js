@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 angular.module('BlurAdmin', [
     'ngAnimate',
@@ -37,4 +37,4 @@ angular.module('BlurAdmin', [
                 }
             )
         }
-    })
+    });
